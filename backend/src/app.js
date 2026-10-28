@@ -22,6 +22,10 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
+app.get("/health", (_req, res) => {
+    res.status(200).json({ status: "ok" });
+});
+
 const authRouter = require("./route/auth.route");
 app.use("/api/auth", authRouter);
 
